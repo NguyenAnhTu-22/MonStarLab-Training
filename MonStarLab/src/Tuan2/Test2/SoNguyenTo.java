@@ -3,16 +3,18 @@ package Tuan2.Test2;
 import java.util.Scanner;
 
 public class SoNguyenTo {
-	private static int a;
-	private static int x;
+	private int a;
 
 	public SoNguyenTo() {
+		a=0;
 	}
 
-	public SoNguyenTo(int a) {
-		if (isSoNguyenTo(x) == true)
+	public SoNguyenTo(int x) {
+		if (isSoNguyenTo(x) == true) {
 			this.a = x;
-		else
+			System.out.println("x là số nguyên tố");
+			System.out.println("Số nguyên tố tiếp theo: "+ timSoNguyenToTiepTheo());
+		}else
 			System.out.println("x không phải số nguyên tố");
 	}
 
@@ -29,16 +31,13 @@ public class SoNguyenTo {
 	}
 
 	public int timSoNguyenToTiepTheo() {
-		int nghiem = a + 1;
-		int index = 1;
-		while (index == 1) {
-			if (isSoNguyenTo(nghiem) == false) {
-				nghiem++;
-			} else {
-				index = index - 1;
-			}
+		int ngtotiep;
+		int i =0;
+		while (true){
+			if (isSoNguyenTo(this.a + ++i)== true)
+				return this.a +i;
 		}
-		return -1;
+		
 	}
 
 	public int getA() {
@@ -50,7 +49,10 @@ public class SoNguyenTo {
 			this.a = a;
 	}
 	public static void main(String[] args) {
-		SoNguyenTo SoNguyenTo = new SoNguyenTo(2);
-		int nghiem = a.timSoNguyenToTiepTheo();
+		int x;
+		Scanner sc = new Scanner (System.in);
+		System.out.println("Nhập x:");
+		x = sc.nextInt();
+		SoNguyenTo snt = new SoNguyenTo(x);
 	}
 }
